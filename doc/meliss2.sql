@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `ADMIN` (
   `Admin_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `Kasutajaimi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Kasutajanimi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Parool` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`Admin_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
