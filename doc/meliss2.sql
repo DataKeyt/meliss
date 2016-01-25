@@ -52,6 +52,27 @@ CREATE TABLE IF NOT EXISTS `BRONEERING` (
 -- --------------------------------------------------------
 
 --
+-- Triggers `BRONEERING`
+--
+DELIMITER $$
+CREATE TRIGGER `kohta_valideerimine` BEFORE INSERT ON `BRONEERING`
+ FOR EACH ROW BEGIN
+
+DECLARE kohtade_arv INTEGER;
+
+SELECT SUM(Inimeste_arv) INTO kohtade_arv
+        FROM broneering 
+        WHERE Kuupäev = NEW.Kuupäev;
+
+IF (kohtade_arv + NEW.Inimeste_arv) > 26 THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Ainult 26 inimest saavad tulla samal päeval.';
+END IF;
+
+END
+$$
+DELIMITER ;
+
+--
 -- Tabeli struktuur tabelile `KLIENT`
 --
 
