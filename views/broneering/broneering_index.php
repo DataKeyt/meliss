@@ -1,3 +1,4 @@
+<script src="vendor/components/jquery/jquery.min.js"></script>
 <?php if ($auth->is_admin): ?>
     <h3>Broneeringud</h3>
     <? foreach ($broneerings as $day => $items) {
@@ -27,7 +28,7 @@
     </select>
     <table class="table table-bordered">
         <tr>
-            <th>Inimeste arv</th>
+            <th>Inimeste arv <span style="color:red" id="numbercontrol"></span></th>
             <td><input type="text" name="data[inimeste_arv]" value=""/></td>
         </tr>
         <tr>
@@ -47,3 +48,27 @@
     <input type="hidden" name="data[user_id]" value="<?= $auth->user_id ?>"/>
     <button class="btn btn-primary" type="submit">Add</button>
 </form>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        check_places();
+
+        $("#date").change(function(){
+            check_places();
+        })
+    });
+
+    function check_places() {
+        var kuupaeva_id = $('#date').val();
+        $.ajax({
+            url: "check_free_places.php",
+            context: this,
+            data: {kuupaeva_id: kuupaeva_id}
+        }).done(function (data) {
+            $("#numbercontrol").text("");
+            if (data != 26) {
+                $("#numbercontrol").text("(Ainult " + data + " vaba kohta)");
+            }
+        });
+    }
+</script>

@@ -1,3 +1,4 @@
+<script src="vendor/components/jquery/jquery.min.js"></script>
 <? if (!$auth->is_admin): ?>
     <div class="alert alert-danger fade in">
         <button class="close" data-dismiss="alert">×</button>
@@ -18,7 +19,7 @@
     </select>
     <table class="table table-bordered">
         <tr>
-            <th>Inimeste arv</th>
+            <th>Inimeste arv  <span style="color:red" id="numbercontrol"></span></th>
             <td><input type="text" name="data[inimeste_arv]" value="<?= $broneering['inimeste_arv'] ?>"/></td>
         </tr>
         <tr>
@@ -67,6 +68,30 @@
                 window.location.href = 'broneering';
             } else {
                 alert('Fail');
+            }
+        });
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        check_places();
+
+        $("#date").change(function(){
+            check_places();
+        })
+    });
+
+    function check_places() {
+        var kuupaeva_id = $('#date').val();
+        $.ajax({
+            url: "check_free_places.php",
+            context: this,
+            data: {kuupaeva_id: kuupaeva_id}
+        }).done(function (data) {
+            $("#numbercontrol").text("");
+            if (data != 26) {
+                $("#numbercontrol").text("(Ainult " + data + " vaba kohta)");
             }
         });
     }
