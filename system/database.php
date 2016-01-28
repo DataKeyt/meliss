@@ -16,9 +16,9 @@ function connect_db()
     }
     mysqli_select_db($db, DATABASE_DATABASE) or error_out('<b>Error:</b><i> ' . mysqli_error($db) . '</i><br>
 		This usually means that MySQL does not have a database called <b>' . DATABASE_DATABASE . '</b>.<br><br>
-		Create that database and import some structure into it from <b>doc/database.sql</b> file:<br>
+		Create that database and import some structure into it from <b>doc/melisss.sql</b> file:<br>
 		<ol>
-		<li>Open database.sql</li>
+		<li>Open melisss.sql</li>
 		<li>Copy all the SQL code</li>
 		<li>Go to phpMyAdmin</li>
 		<li>Create a database called <b>' . DATABASE_DATABASE . '</b></li>
