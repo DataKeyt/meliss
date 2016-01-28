@@ -6,6 +6,16 @@
     <? exit(); endif; ?>
 <h1>Broneering</h1>
 <form id="form" method="post">
+    <select id="date" name="data[kuupaeva_id]">
+        <? foreach ($dates as $date): ?>
+            <option value="<?= $date['kuupaeva_id'] ?>" ><?= $date['kuupaev'] ?></option>
+        <? endforeach ?>
+    </select>
+    <select id="time" name="data[kellaja_id]">
+        <? foreach ($times as $time): ?>
+            <option value="<?= $time['kellaja_id'] ?>" ><?= $time['kellaeg'] ?></option>
+        <? endforeach ?>
+    </select>
     <table class="table table-bordered">
         <tr>
             <th>Inimeste arv</th>
@@ -26,8 +36,6 @@
     </table>
     <input type="hidden" name="data[broneering_id]" value="<?= $broneering['broneering_id'] ?>"/>
     <input type="hidden" name="data[user_id]" value="<?= $broneering['user_id'] ?>"/>
-    <input type="hidden" name="data[kuupaeva_id]" value="<?= $broneering['kuupaeva_id'] ?>"/>
-    <input type="hidden" name="data[kellaja_id]" value="<?= $broneering['kellaja_id'] ?>"/>
 </form>
 
 <!-- BUTTONS -->

@@ -12,6 +12,8 @@ class broneering extends Controller
         foreach ($days as $day) {
             $this->broneerings[$day['kuupaev']] = get_all("SELECT * FROM $this->joins WHERE kuupaev = '{$day['kuupaev']}'");
         }
+        $this->dates = get_all("SELECT * FROM kuupaev");
+        $this->times = get_all("SELECT * FROM kellaeg");
     }
 
     function view()
@@ -24,6 +26,8 @@ class broneering extends Controller
     {
         $broneering_id = $this->params[0];
         $this->broneering = get_first("SELECT * FROM broneering WHERE broneering_id = '{$broneering_id}'");
+        $this->dates = get_all("SELECT * FROM kuupaev");
+        $this->times = get_all("SELECT * FROM kellaeg");
     }
 
     function post_index()

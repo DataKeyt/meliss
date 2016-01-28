@@ -15,6 +15,16 @@
 <h3>Lisa broneering</h3>
 
 <form method="post" id="form">
+    <select id="date" name="data[kuupaeva_id]">
+        <? foreach ($dates as $date): ?>
+            <option value="<?= $date['kuupaeva_id'] ?>" ><?= $date['kuupaev'] ?></option>
+        <? endforeach ?>
+    </select>
+    <select id="time" name="data[kellaja_id]">
+        <? foreach ($times as $time): ?>
+            <option value="<?= $time['kellaja_id'] ?>" ><?= $time['kellaeg'] ?></option>
+        <? endforeach ?>
+    </select>
     <table class="table table-bordered">
         <tr>
             <th>Inimeste arv</th>
@@ -35,7 +45,5 @@
     </table>
 
     <input type="hidden" name="data[user_id]" value="<?= $auth->user_id ?>"/>
-    <input type="hidden" name="data[kuupaeva_id]" value="4"/>
-    <input type="hidden" name="data[kellaja_id]" value="2"/>
     <button class="btn btn-primary" type="submit">Add</button>
 </form>
