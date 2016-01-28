@@ -26,6 +26,13 @@ class broneering extends Controller
         $this->broneering = get_first("SELECT * FROM broneering WHERE broneering_id = '{$broneering_id}'");
     }
 
+    function post_index()
+    {
+        $data = $_POST['data'];
+        $broneering_id = insert('broneering', $data);
+        header('Location: ' . BASE_URL . 'broneering/view/' . $broneering_id);
+    }
+
     function post_edit()
     {
         $data = $_POST['data'];

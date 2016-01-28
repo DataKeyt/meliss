@@ -5,7 +5,7 @@ require 'vendor/autoload.php';
 
 // Project constants
 define('PROJECT_NAME', 'meliss');
-define('DEFAULT_CONTROLLER', 'welcome');
+define('DEFAULT_CONTROLLER', 'broneering');
 define('DEBUG', false);
 
 // Load app
