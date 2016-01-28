@@ -49,7 +49,24 @@ INSERT INTO `broneering` (`broneering_id`, `user_id`, `kuupaeva_id`, `kellaja_id
 -- Triggers `broneering`
 --
 DELIMITER $$
-CREATE TRIGGER `kohta_valideerimine` BEFORE INSERT ON `broneering`
+CREATE TRIGGER `kohta_valideerimine_insert` AFTER INSERT ON `broneering`
+ FOR EACH ROW BEGIN
+
+  DECLARE kohtade_arv INTEGER;
+
+  SELECT SUM(inimeste_arv) INTO kohtade_arv
+  FROM broneering
+  WHERE kuupaeva_id = NEW.kuupaeva_id;
+
+  IF (kohtade_arv + NEW.inimeste_arv) > 26 THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Ainult 26 inimest saavad tulla samal päeval.';
+  END IF;
+
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `kohta_valideerimine_update` AFTER UPDATE ON `broneering`
  FOR EACH ROW BEGIN
 
   DECLARE kohtade_arv INTEGER;
