@@ -18,7 +18,7 @@ $header = "Cc:afgh@somedomain.com \r\n";
 $header .= "MIME-Version: 1.0\r\n";
 $header .= "Content-type: text/html\r\n";
 
-$retval = mail ($to,$subject,$message,$header)or die("tere");
+$retval = mail ($to,$subject,$message,$header)or die("Whoops!");
 
 if( $retval == true ) {
     echo "Message sent successfully...";
