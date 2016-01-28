@@ -1,6 +1,7 @@
 <script src="vendor/components/jquery/jquery.min.js"></script>
 <?php if ($auth->is_admin): ?>
-    <h3>Broneeringud</h3>
+    <h3 id="toggler">Broneeringud</h3>
+    <div id="list">
     <? foreach ($broneerings as $day => $items) {
          echo "<ul class=\"list-group\">";
             if (!empty($items)) {
@@ -11,6 +12,7 @@
             }
          echo "</ul>";
     }; ?>
+    </div>
 <?php endif; ?>
 
 <h3>Lisa broneering</h3>
@@ -55,7 +57,13 @@
 
         $("#date").change(function(){
             check_places();
-        })
+        });
+
+        $( "#toggler" ).click(function() {
+            $( "#list" ).toggle( "slow", function() {
+                // Animation complete.
+            });
+        });
     });
 
     function check_places() {
