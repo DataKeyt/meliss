@@ -30,6 +30,7 @@ class broneering extends Controller
     {
         $data = $_POST['data'];
         insert('broneering', $data);
+        header('Location: ' . BASE_URL . 'broneering/view/' . $this->params[0]);
     }
 
     function ajax_delete()
