@@ -21,7 +21,7 @@
 
 <!-- EDIT BUTTON -->
 <? if ($auth->is_admin): ?>
-    <form action="users/edit/<?= $user['user_id'] ?>">
+    <form action="broneering/edit/<?= $broneering['broneering_id'] ?>">
         <div class="pull-right">
             <button class="btn btn-primary">
                 Edit

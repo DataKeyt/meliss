@@ -21,6 +21,10 @@
                 <td><input type="text" name="data[password]" placeholder="******"/></td>
             </tr>
             <tr>
+                <th>Name</th>
+                <td><input type="text" name="data[name]" placeholder="Jaan Taam"/></td>
+            </tr>
+            <tr>
                 <th>Active</th>
                 <td><input type="checkbox"
                            name="data[active]" checked="checked"/>
@@ -28,6 +32,10 @@
             <tr>
                 <th>Email</th>
                 <td><input type="text" name="data[email]" placeholder="em@ail.ee">
+            </tr>
+            <tr>
+                <th>Telefon</th>
+                <td><input type="text" name="data[telefon]" placeholder="55555555">
             </tr>
         </table>
 

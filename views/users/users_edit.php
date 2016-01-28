@@ -4,7 +4,7 @@
         You are not an administrator.
     </div>
     <? exit(); endif; ?>
-<h1>User '<?= $user['username'] ?>'</h1>
+<h1>User '<?= $user['name'] ?>'</h1>
 <form id="form" method="post">
     <table class="table table-bordered">
         <tr>
@@ -12,18 +12,26 @@
             <td><input type="text" name="data[username]" value="<?= $user['username'] ?>"/></td>
         </tr>
         <tr>
-            <th>Password</th>
-            <td><input type="text" name="data[password]" value="<?= $user['password'] ?>"/></td>
+            <th>Name</th>
+            <td><input type="text" name="data[name]" value="<?= $user['name'] ?>"/></td>
         </tr>
         <tr>
-            <th>Active</th>
-            <td><input type="checkbox" name="data[active]" <?= $user['active'] != 0 ? 'checked="checked"' : '' ?>/>
+            <th>Password</th>
+            <td><input type="text" name="data[password]" value="<?= $user['password'] ?>"/></td>
         </tr>
         <tr>
             <th>Email</th>
             <td><input type="text" name="data[email]" value="<?= $user['email'] ?>">
         </tr>
+        <tr>
+            <th>Telefon</th>
+            <td><input type="text" name="data[telefon]" value="<?= $user['telefon'] ?>">
+        </tr>
     </table>
+    <input type="hidden" name="data[user_id]" value="<?= $user['user_id'] ?>"/>
+    <input type="hidden" name="data[deleted]" value="<?= $user['deleted'] ?>"/>
+    <input type="hidden" name="data[active]" value="<?= $user['active'] ?>"/>
+    <input type="hidden" name="data[is_admin]" value="<?= $user['is_admin'] ?>"/>
 </form>
 
 <!-- BUTTONS -->

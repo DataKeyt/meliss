@@ -25,7 +25,7 @@ class users extends Controller
 
     }
 
-    function index_post()
+    function post_index()
     {
         $data = $_POST['data'];
 
@@ -37,13 +37,11 @@ class users extends Controller
     function edit_post()
     {
         $data = $_POST['data'];
-        $data['user_id'] = $this->params[0];
-        $data['active'] = isset($data['active']) ? 1 : 0;
         insert('users', $data);
         header('Location: ' . BASE_URL . 'users/view/' . $this->params[0]);
     }
 
-    function delete_post()
+    function post_delete()
     {
         $user_id = $_POST['user_id'];
         update('users', ['deleted' => '1'], "user_id = '$user_id'");
