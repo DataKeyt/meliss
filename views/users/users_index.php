@@ -1,3 +1,10 @@
+<? if (!$auth->is_admin): ?>
+    <div class="alert alert-danger fade in">
+        <button class="close" data-dismiss="alert">×</button>
+        You are not an administrator.
+    </div>
+    <? exit(); endif; ?>
+
 <h3>Users</h3>
 <ul class="list-group">
     <? foreach ($users as $user): ?>

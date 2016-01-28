@@ -40,7 +40,8 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Broneering</a></li>
+                <li class="active"><a href="broneering">Broneering</a></li>
+                <li class="active"><a href="users">Kasutajad</a></li>
                 <!--<li><a href="halo">Halo admin</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sample dropdown <b class="caret"></b></a>
